@@ -1,8 +1,12 @@
 import numpy as np
+import serial
 
 # updates LEDS on board.
 pixels = np.tile(1, (3, 60))
 _prev_pixels = np.tile(253, (3, 60))
+PORT = 'COM1'
+
+led = serial.Serial(PORT, 115200, timeout=0.1)
 
 
 def update():
@@ -25,5 +29,5 @@ def update():
             m.append(p[1][i])  # Pixel green value
             m.append(p[2][i])  # Pixel blue value
         m = bytes(m)
-        # _sock.sendto(m, (config.UDP_IP, config.UDP_PORT))
+        led.write(m)
     _prev_pixels = np.copy(p)

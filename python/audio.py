@@ -5,6 +5,7 @@ import pyaudio
 dev_index = 0
 frames_per_buffer = int(44100 / 60)
 
+
 # TODO: Turn into recording desktop audio instead of microphone
 def startStream(callback):
     p = pyaudio.PyAudio()
