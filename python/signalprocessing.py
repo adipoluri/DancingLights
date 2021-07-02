@@ -3,7 +3,7 @@ import time
 import numpy as np
 from scipy.ndimage import gaussian_filter1d
 
-from python import melbank
+from python import melbank, led
 
 
 class ExpFilter:
@@ -82,8 +82,8 @@ def microphone_update(audio_samples):
         mel = mel_smoothing.update(mel)
         # Map filterbank output onto LED strip
         output = visualize(mel)
-        # led.pixels = output
-        # led.update()
+        led.pixels = output
+        led.update()
 
 
 def visualize(y):

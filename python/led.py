@@ -4,7 +4,7 @@ import serial
 # updates LEDS on board.
 pixels = np.tile(1, (3, 60))
 _prev_pixels = np.tile(253, (3, 60))
-PORT = 'COM1'
+PORT = 'COM4'
 
 led = serial.Serial(PORT, 115200, timeout=0.1)
 
